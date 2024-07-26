@@ -1,7 +1,5 @@
 ---@type table
 local opts = {
-    path = vim.fs.normalize(vim.fn.stdpath("data")) .. "/huez",
-    suppress_messages = true,
     exclude = require("plugins.configs.huez-nvim.exclude").exclude,
     theme_config_module = "plugins.configs.huez-nvim.themes",
 }
@@ -14,6 +12,11 @@ local cmds = {
     "HuezFavorites",
 }
 
+---@type table
+local dependencies = {
+    "folke/tokyonight.nvim",
+}
+
 ---@type LazySpec
 local spec = {
     "vague2k/huez.nvim",
@@ -21,6 +24,7 @@ local spec = {
     branch = "stable",
     --lazy = false,
     event = "UIEnter",
+    dependencies = dependencies,
     cmd = cmds,
     opts = opts,
     --cond = false,

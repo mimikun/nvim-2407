@@ -8,7 +8,7 @@ local cmds = {
 ---@type LazySpec
 local spec = {
     "xiyaowong/transparent.nvim",
-    --lazy = false,
+    lazy = false,
     cmd = cmds,
     opts = {},
     --cond = false,

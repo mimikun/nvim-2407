@@ -33,6 +33,45 @@ M.vhs = {
 }
 
 ---@type table
+local minimum_required_parsers = {
+    "bash",
+    "css",
+    "dockerfile",
+    "fish",
+    "git_config",
+    "git_rebase",
+    "gitattributes",
+    "gitcommit",
+    "gitignore",
+    "html",
+    "ini",
+    "javascript",
+    "jq",
+    "json",
+    "jsonc",
+    "json5",
+    "lua",
+    "luadoc",
+    "luap",
+    "luau",
+    "make",
+    "markdown",
+    "markdown_inline",
+    "nix",
+    "python",
+    "regex",
+    "rust",
+    "scss",
+    "sql",
+    "toml",
+    "tsx",
+    "typescript",
+    "vim",
+    "vimdoc",
+    "yaml",
+}
+
+---@type table
 local base_parsers = {
     "bash",
     "c",
@@ -98,6 +137,6 @@ if global.is_linux or global.is_wsl then
     table.insert(base_parsers, "ocaml_interface")
 end
 
-M.need_parsers = base_parsers
+M.need_parsers = minimum_required_parsers
 
 return M

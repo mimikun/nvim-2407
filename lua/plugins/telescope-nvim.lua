@@ -1,22 +1,6 @@
 ---@type boolean
 local is_windows = require("config.global").is_windows
 
----@type boolean
-local is_git = false
-
----@type table
-local keys = {
-    { "<C-p>", desc = "Open file search" },
-    { "<C-g>", desc = "Open string search" },
-    -- TODO: Fix which-key conflict error
-    { "fr", desc = "Open grep string search" },
-    { "fb", desc = "Open buffer search" },
-    { "fm", desc = "Open mark search" },
-    { "fo", desc = "Open file history search" },
-    { "fc", desc = "Open git-commit log search" },
-    { "fh", desc = "Open helptags search" },
-}
-
 ---@type LazySpec[]
 local dependencies = {
     "nvim-lua/plenary.nvim",
@@ -37,7 +21,6 @@ local dependencies = {
     "roycrippen4/telescope-treesitter-info.nvim",
     "illia-shkroba/telescope-completion.nvim",
     "cljoly/telescope-repo.nvim",
-    --"cbochs/grapple.nvim",
 }
 
 -- NOTE: Add fzf_sorter if not a Windows
@@ -56,48 +39,15 @@ end
 local spec = {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.5",
-    lazy = false,
-    keys = keys,
+    --lazy = false,
+    --keys = keys,
     dependencies = dependencies,
     config = function()
         local telescope = require("telescope")
-        local builtin = require("telescope.builtin")
-        local themes = require("telescope.themes")
 
         telescope.setup({
             extensions = require("plugins.configs.telescope-nvim.extensions"),
         })
-
-        if is_git then
-            -- Open git file search
-            vim.keymap.set("n", "<C-p>", builtin.git_files, {})
-        else
-            -- Open file search
-            vim.keymap.set("n", "<C-p>", builtin.find_files, {})
-        end
-
-        -- Open string search
-        vim.keymap.set("n", "<C-g>", builtin.live_grep, {})
-
-        -- Open grep string search
-        vim.keymap.set("n", "fr", builtin.grep_string, {})
-
-        -- Open buffer search
-        vim.keymap.set("n", "fb", builtin.buffers, {})
-
-        -- Open mark search
-        vim.keymap.set("n", "fm", builtin.marks, {})
-
-        -- Open file history search
-        vim.keymap.set("n", "fo", builtin.oldfiles, {})
-
-        -- Open git-commit log search
-        vim.keymap.set("n", "fc", builtin.git_commits, {})
-
-        -- Open helptags search
-        vim.keymap.set("n", "fh", function()
-            builtin.help_tags(themes.get_ivy())
-        end, {})
 
         -- Load some extensions
 
@@ -123,7 +73,6 @@ local spec = {
         telescope.load_extension("treesitter_info")
         telescope.load_extension("completion")
         telescope.load_extension("repo")
-        --telescope.load_extension("grapple")
     end,
     --cond = false,
 }

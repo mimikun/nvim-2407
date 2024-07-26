@@ -1,0 +1,17 @@
+[default.extend-words]
+# key mapping in lua/plugins/telescope-nvim.lua
+fo = "fo"
+# noice.nvim
+#noice = "noice"
+# vim keymap
+#enew = "enew"
+# telescope-nvim
+#tabe = "tabe"
+# dot_config/nvim/lua/plugins/minigames.lua
+#strat = "strat"
+
+[files]
+extend-exclude = [
+    "lua/sample-plugins/",
+    "lua/plugins/configs/telescope-nvim/media.lua",
+]
