@@ -1,24 +1,3 @@
----@type LazySpec
-local spec = {
-    "nvim-lualine/lualine.nvim",
-    --lazy = false,
-    --event = "VeryLazy",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    --init = function()
-    --    INIT
-    --end,
-    --opts = {
-    --    OPTS
-    --},
-    --config = function()
-    --    INIT
-    --end,
-    --cond = false,
-}
-
-return spec
-
---[[
 ---@return string
 local function improved_encoding()
     local encoding = vim.opt.fileencoding:get()
@@ -34,11 +13,7 @@ local function improved_encoding()
     return encoding
 end
 
----@return string
-local function special_notice()
-    return "コロナを忘れるな！"
-end
-
+---@return table
 local function diff_source()
     local gitsigns = vim.b.gitsigns_status_dict
     if gitsigns then
@@ -50,49 +25,49 @@ local function diff_source()
     end
 end
 
+---@return string
+local function special_notice()
+    local special_msg = "コロナを忘れるな！"
+    return special_msg
+end
+
 ---@type table
 local options = {
     theme = "auto",
-    component_separators = "",
-    section_separators = "",
     icons_enabled = true,
     globalstatus = true,
-    refresh = {
-        statusline = 1000,
-        tabline = 1000,
-        winbar = 1000,
+    disabled_filetypes = {
+        statusline = { "NvimTree" },
+        winbar = { "NvimTree" },
     },
+    component_separators = { left = "", right = "" },
+    section_separators = { left = "", right = "" },
 }
 
 ---@type table
 local sections = {
     lualine_a = {
-        { "mode", color = { gui = "bold" } },
+        "mode",
     },
     lualine_b = {
-        { "fancy_branch" },
-        { "fancy_diff", source = diff_source },
-    },
-    lualine_c = {
-        -- NOTE: filename component has bug
-        -- https://github.com/nvim-lualine/lualine.nvim/issues/1097
-        -- https://github.com/nvim-lualine/lualine.nvim?tab=readme-ov-file#filename-component-options
-        { "filename", file_status = true },
         {
-            "fancy_diagnostics",
-            sources = { "nvim_diagnostic", "nvim_lsp" },
-            sections = { "error", "warn", "info", "hint" },
+            "filename",
+            newfile_status = true,
+            path = 1,
+            shorting_target = 24,
+            symbols = { modified = "_󰷥", readonly = " ", newfile = "󰄛" },
         },
-        { "navic" },
     },
+    lualine_c = {},
     lualine_x = {
-        { "fancy_filetype", ts_icon = require("utils.icons").get("misc").Tree },
         improved_encoding,
-        "fileformat",
+        { "diff", symbols = { added = " ", modified = " ", removed = " " }, source = diff_source },
     },
-    lualine_y = { "progress" },
+    lualine_y = {
+        "filetype",
+    },
     lualine_z = {
-        { "fancy_location", color = { gui = "bold" } },
+        { "fileformat", icons_enabled = true, separator = { left = "", right = "" } },
     },
 }
 
@@ -101,35 +76,30 @@ local tabline = {
     lualine_a = {
         {
             "buffers",
-            buffers_color = {
-                active = "lualine_b_normal",
-            },
+            symbols = { modified = "_󰷥", alternate_file = " ", directory = " " },
         },
     },
     lualine_b = {},
     lualine_c = {},
-    lualine_x = {},
-    lualine_y = { special_notice },
+    lualine_x = {
+        "diff",
+    },
+    lualine_y = {
+        "branch",
+    },
     lualine_z = {
-        {
-            "tabs",
-            tabs_color = {
-                active = "lualine_b_normal",
-            },
-        },
+        "tabs",
     },
 }
-tabline = {}
 
 ---@type table
-local events = { "BufReadPre", "BufNewFile" }
-
----@type table
-local dependencies = {
-    "nvim-tree/nvim-web-devicons",
-    "lewis6991/gitsigns.nvim",
-    "meuter/lualine-so-fancy.nvim",
-    "SmiteshP/nvim-navic",
+local winbar = {
+    lualine_a = {},
+    lualine_b = { special_notice },
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {},
 }
 
 ---@type table
@@ -137,6 +107,20 @@ local opts = {
     options = options,
     sections = sections,
     tabline = tabline,
+    winbar = winbar,
+}
+
+---@type table
+local events = {
+    "BufEnter",
+}
+
+---@type table
+local dependencies = {
+    "nvim-tree/nvim-web-devicons",
+    "lewis6991/gitsigns.nvim",
+    --"meuter/lualine-so-fancy.nvim",
+    --"SmiteshP/nvim-navic",
 }
 
 ---@type LazySpec
@@ -150,4 +134,3 @@ local spec = {
 }
 
 return spec
-]]

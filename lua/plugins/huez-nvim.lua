@@ -15,6 +15,11 @@ local cmds = {
 ---@type table
 local dependencies = {
     "folke/tokyonight.nvim",
+    { "catppuccin/nvim", name = "catppuccin" },
+    "marko-cerovac/material.nvim",
+    "pauchiner/pastelnight.nvim",
+    "loctvl842/monokai-pro.nvim",
+    "projekt0n/github-nvim-theme",
 }
 
 ---@type LazySpec

@@ -5,7 +5,7 @@ local dependencies = {
 
 -- NOTE: Add fzf_sorter if not a Windows
 -- NOTE: Very difficult to build fzf on Windows
-if not require("core.global").is_windows then
+if not require("config.global").is_windows then
     table.insert(dependencies, {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
