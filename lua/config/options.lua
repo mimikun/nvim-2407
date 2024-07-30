@@ -93,10 +93,6 @@ vim.opt.showmode = false
 ---@type number
 vim.opt.updatetime = 250
 
--- ヘルプ日本語化
----@type table
-vim.opt.helplang = { "ja", "en" }
-
 -- editorconfig
 ---@type boolean
 vim.g.editorconfig = true
