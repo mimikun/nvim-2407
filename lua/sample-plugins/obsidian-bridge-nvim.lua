@@ -42,6 +42,7 @@ local spec = {
     dependencies = dependencies,
     opts = opts,
     cond = cond,
+    enabled = false,
 }
 
 return spec

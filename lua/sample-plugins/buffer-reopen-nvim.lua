@@ -12,6 +12,7 @@ local spec = {
     cmds = "BufferHistory",
     opts = {},
     --cond = false,
+    enabled = false,
 }
 
 return spec

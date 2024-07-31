@@ -28,6 +28,7 @@ local spec = {
     cmd = "RipSubstitute",
     opts = opts,
     --cond = false,
+    enabled = false,
 }
 
 return spec

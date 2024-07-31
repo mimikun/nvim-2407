@@ -17,6 +17,7 @@ local spec = {
     cmd = cmds,
     config = true,
     --cond = false,
+    enabled = false,
 }
 
 return spec

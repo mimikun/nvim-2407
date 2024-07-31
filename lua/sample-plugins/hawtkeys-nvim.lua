@@ -13,6 +13,7 @@ local spec = {
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {},
     --cond = false,
+    enabled = false,
 }
 
 return spec

@@ -22,6 +22,7 @@ local spec = {
     dependencies = dependencies,
     opt = opts,
     --cond = false,
+    enabled = false,
 }
 
 return spec

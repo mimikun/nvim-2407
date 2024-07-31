@@ -39,7 +39,9 @@ local spec = {
                 enable = true,
                 disable = {},
             },
-            ensure_installed = sources.need_parsers,
+            --ensure_installed = sources.need_parsers,
+            -- TODO: test only, remove it
+            ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
             sync_install = sync_install,
             textsubjects = {
                 enable = true,

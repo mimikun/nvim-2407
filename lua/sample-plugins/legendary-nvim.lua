@@ -36,6 +36,7 @@ local spec = {
     opts = opts,
     --cond = false,
     priority = 10000,
+    enabled = false,
 }
 
 return spec

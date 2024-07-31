@@ -15,6 +15,7 @@ local spec = {
         vim.cmd([[cnoremap <expr><CR> migemosearch#replace_search_word()."\<CR>"]])
     end,
     cond = cond,
+    enabled = false,
 }
 
 return spec

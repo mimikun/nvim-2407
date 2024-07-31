@@ -61,7 +61,15 @@ local sections = {
             symbols = { modified = "_󰷥", readonly = " ", newfile = "󰄛" },
         },
     },
-    lualine_c = {},
+    lualine_c = {
+        {
+            "diagnostics",
+            sources = { "nvim_diagnostic", "nvim_lsp" },
+            sections = { "error", "warn", "info", "hint" },
+            symbols = { error = " ", warn = " ", info = " ", hint = "" },
+        },
+        { "navic" },
+    },
     lualine_x = {
         improved_encoding,
         { "diff", symbols = { added = " ", modified = " ", removed = " " }, source = diff_source },
@@ -123,7 +131,7 @@ local dependencies = {
     "nvim-tree/nvim-web-devicons",
     "lewis6991/gitsigns.nvim",
     --"meuter/lualine-so-fancy.nvim",
-    --"SmiteshP/nvim-navic",
+    "SmiteshP/nvim-navic",
 }
 
 ---@type LazySpec

@@ -43,6 +43,7 @@ local dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope-frecency.nvim",
     "danielfalk/smart-open.nvim",
+    "rcarriga/nvim-notify",
     --"ghassan0/telescope-glyph.nvim",
     --"xiyaowong/telescope-emoji.nvim",
     --"tsakirist/telescope-lazy.nvim",
@@ -111,6 +112,7 @@ local spec = {
         end
         telescope.load_extension("frecency")
         telescope.load_extension("smart_open")
+        telescope.load_extension("notify")
         --telescope.load_extension("glyph")
         --telescope.load_extension("emoji")
         --telescope.load_extension("lazy")

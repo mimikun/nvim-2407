@@ -5,6 +5,7 @@ local spec = {
     event = "InsertEnter",
     opts = {},
     --cond = false,
+    enabled = false,
 }
 
 return spec

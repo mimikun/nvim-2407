@@ -31,6 +31,7 @@ local spec = {
         },
     },
     --cond = false,
+    enabled = false,
 }
 
 return spec

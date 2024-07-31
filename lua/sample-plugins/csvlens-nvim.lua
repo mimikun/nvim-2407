@@ -22,6 +22,7 @@ local spec = {
     dependencies = { "akinsho/toggleterm.nvim" },
     opts = opts,
     cond = cond,
+    enabled = false,
 }
 
 return spec

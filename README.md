@@ -20,5 +20,5 @@ denopsなど主流ではない技術のプラグインは使わない
 
 ## TODO
 
-- [ ] `gitsigns.nvim`
-- [ ] `lualine.nvim`
+- [ ] https://github.com/mfussenegger/nvim-lint
+- [ ] https://github.com/stevearc/conform.nvim

@@ -5,6 +5,7 @@ local spec = {
     cmd = "ScopeMoveBuf",
     opts = {},
     --cond = false,
+    enabled = false,
 }
 
 return spec

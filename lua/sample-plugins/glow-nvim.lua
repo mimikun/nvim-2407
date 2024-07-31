@@ -5,6 +5,7 @@ local spec = {
     cmd = "Glow",
     config = true,
     --cond = false,
+    enabled = false,
 }
 
 return spec

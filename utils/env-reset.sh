@@ -1,13 +1,14 @@
 #!/bin/bash
 
 readonly APPNAME="nvim-2407"
+TEMP_DIR=$(mktemp -d)
 
-rm -rf "$XDG_STATE_HOME/$APPNAME"
-rm -rf "$XDG_CACHE_HOME/$APPNAME"
-rm -rf "$XDG_DATA_HOME/$APPNAME/.netrwhist"
-rm -rf "$XDG_DATA_HOME/$APPNAME/huez"
-rm -rf "$XDG_DATA_HOME/$APPNAME/smart_open.sqlite3"
+mv "$XDG_STATE_HOME/$APPNAME" "$TEMP_DIR"
+mv "$XDG_CACHE_HOME/$APPNAME" "$TEMP_DIR"
+mv "$XDG_DATA_HOME/$APPNAME/.netrwhist" "$TEMP_DIR"
+mv "$XDG_DATA_HOME/$APPNAME/huez" "$TEMP_DIR"
+mv "$XDG_DATA_HOME/$APPNAME/smart_open.sqlite3" "$TEMP_DIR"
 
-rm -rf "$XDG_DATA_HOME/$APPNAME/site/"
+mv "$XDG_DATA_HOME/$APPNAME/site/" "$TEMP_DIR"
 
 #/home/yuto/.local/share/nvim-2407/site/lazy/nvim-treesitter

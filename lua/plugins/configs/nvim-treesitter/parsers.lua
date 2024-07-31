@@ -140,7 +140,7 @@ end
 M.need_parsers = minimum_required_parsers
 -- TODO: remove it
 M.need_parsers = {
-    "lua"
+    "lua",
 }
 
 return M

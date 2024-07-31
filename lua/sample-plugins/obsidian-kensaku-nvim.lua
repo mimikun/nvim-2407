@@ -10,6 +10,7 @@ local spec = {
         --migemo_dict_path = "/path/to/migemo-dict",
     },
     --cond = false,
+    enabled = false,
 }
 
 return spec

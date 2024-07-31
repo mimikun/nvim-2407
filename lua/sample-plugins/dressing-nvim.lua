@@ -4,6 +4,7 @@ local spec = {
     --lazy = false,
     opts = {},
     --cond = false,
+    enabled = false,
 }
 
 return spec

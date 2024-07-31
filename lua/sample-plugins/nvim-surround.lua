@@ -9,6 +9,7 @@ local spec = {
         require("nvim-surround").setup({})
     end,
     --cond = false,
+    enabled = false,
 }
 
 return spec

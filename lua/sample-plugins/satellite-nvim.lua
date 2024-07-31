@@ -43,6 +43,7 @@ local spec = {
     lazy = false,
     opts = opts,
     --cond = false,
+    enabled = false,
 }
 
 return spec
