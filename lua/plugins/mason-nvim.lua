@@ -87,6 +87,7 @@ local spec = {
                     capabilities = require("cmp_nvim_lsp").default_capabilities(),
                 })
             end,
+            ["rust_analyzer"] = function() end,
             ["lua_ls"] = function()
                 lspconfig.lua_ls.setup(require("plugins.configs.lspconfigs.lua-ls"))
             end,

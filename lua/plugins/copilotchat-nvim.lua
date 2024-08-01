@@ -1,6 +1,5 @@
--- TODO: fix it
 ---@type boolean
-local cond = false
+local cond = require("config.settings").use_ai
 
 ---@type table
 local cmds = {
@@ -34,7 +33,6 @@ local spec = {
     "CopilotC-Nvim/CopilotChat.nvim",
     branch = "canary",
     --lazy = false,
-    enabled = cond,
     cmd = cmds,
     dependencies = dependencies,
     opts = {},

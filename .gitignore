@@ -1,5 +1,5 @@
 lazy-lock.json
-*.zip
-*.patch
 dotfyle.json
 mason-lock.json
+*.zip
+*.patch

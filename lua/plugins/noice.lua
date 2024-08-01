@@ -9,8 +9,7 @@ local cmds = {
 local dependencies = {
     "MunifTanjim/nui.nvim",
     "rcarriga/nvim-notify",
-    -- TODO: uncomment
-    --"hrsh7th/nvim-cmp",
+    "hrsh7th/nvim-cmp",
 }
 
 ---@type NoiceConfig
@@ -20,9 +19,7 @@ local opts = {
         override = {
             ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
             ["vim.lsp.util.stylize_markdown"] = true,
-            -- TODO: uncomment
-            -- requires hrsh7th/nvim-cmp
-            --["cmp.entry.get_documentation"] = true,
+            ["cmp.entry.get_documentation"] = true,
         },
     },
     -- you can enable a preset for easier configuration

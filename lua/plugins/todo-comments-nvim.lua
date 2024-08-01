@@ -9,8 +9,7 @@ local cmds = {
 local dependencies = {
     "nvim-telescope/telescope.nvim",
     "nvim-lua/plenary.nvim",
-    -- TODO: uncomment
-    --"folke/trouble.nvim",
+    "folke/trouble.nvim",
 }
 
 ---@type table

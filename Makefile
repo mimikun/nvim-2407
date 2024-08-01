@@ -120,6 +120,11 @@ pull :
 .PHONY : morning-routine
 morning-routine : clean-fetch delete-branch pull patch-branch
 
+## Run env-reset
+.PHONY : env-reset
+env-reset :
+	bash utils/env-reset.sh
+
 ## Show help
 .PHONY : help
 help :

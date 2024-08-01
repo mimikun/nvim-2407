@@ -13,8 +13,7 @@ local keys = {
     {
         "[d",
         function()
-            -- TODO: fix deprecated
-            vim.diagnostic.goto_prev()
+            vim.diagnostic.jump({ count = -1, float = true })
         end,
         mode = "n",
         desc = "Move to a prev diagnostic",
@@ -22,8 +21,7 @@ local keys = {
     {
         "]d",
         function()
-            -- TODO: fix deprecated
-            vim.diagnostic.goto_next()
+            vim.diagnostic.jump({ count = 1, float = true })
         end,
         mode = "n",
         desc = "Move to a next diagnostic",

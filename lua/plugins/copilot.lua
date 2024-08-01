@@ -1,6 +1,5 @@
--- TODO: fix it
 ---@type boolean
-local cond = false
+local cond = require("config.settings").use_ai
 
 ---@type table
 local opts = {
@@ -12,7 +11,6 @@ local opts = {
 local spec = {
     "zbirenbaum/copilot.lua",
     --lazy = false,
-    enabled = cond,
     cmd = "Copilot",
     event = "InsertEnter",
     opts = opts,

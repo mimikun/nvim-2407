@@ -138,9 +138,5 @@ if global.is_linux or global.is_wsl then
 end
 
 M.need_parsers = minimum_required_parsers
--- TODO: remove it
-M.need_parsers = {
-    "lua",
-}
 
 return M

@@ -1,7 +1,8 @@
 ---@type table
 local opts = {
-    exclude = require("plugins.configs.huez-nvim.exclude").exclude,
+    fallback = "pastelnight",
     theme_config_module = "plugins.configs.huez-nvim.themes",
+    exclude = require("plugins.configs.huez-nvim.exclude").exclude,
 }
 
 ---@type table

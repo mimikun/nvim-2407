@@ -1,6 +1,5 @@
--- TODO: fix it
 ---@type boolean
-local cond = false
+local use_ai = require("config.settings").use_ai
 
 ---@type LazySpec[]
 local dependencies = {
@@ -43,7 +42,7 @@ local cmp_config_sources = {
     ]]
 }
 
-if cond then
+if use_ai then
     table.insert(dependencies, "zbirenbaum/copilot.lua")
     table.insert(dependencies, "zbirenbaum/copilot-cmp")
     table.insert(cmp_config_sources, { name = "copilot" })
@@ -59,7 +58,7 @@ local spec = {
         local cmp = require("cmp")
         local luasnip = require("luasnip")
 
-        if cond then
+        if use_ai then
             require("copilot_cmp").setup({})
         end
 
@@ -128,7 +127,6 @@ local spec = {
                     mode = "text_symbol",
                     -- "codicons" or "default"
                     preset = "codicons",
-                    -- TODO: Use utils/icons.lua
                     symbol_map = { Copilot = "" },
                 }),
             },

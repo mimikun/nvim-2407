@@ -1,7 +1,6 @@
 ---@type table
 local opts = {
     icons = {
-        -- TODO: Use utils/icons.lua
         File = "󰈙 ",
         Module = " ",
         Namespace = "󰌗 ",
