@@ -15,7 +15,6 @@ local spec = {
         require("orgmode").setup({
             org_agenda_files = "~/orgfiles/**/*",
             org_default_notes_file = "~/orgfiles/refile.org",
-            -- TODO: https://raw.githubusercontent.com/nvim-orgmode/orgmode/master/lua/orgmode/config/defaults.lua
             -- day/week/month/year/number of days
             org_agenda_span = "week",
             org_agenda_start_on_weekday = 1,
