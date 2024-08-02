@@ -29,14 +29,7 @@ local spec = {
     lazy = false,
     keys = keys,
     cmd = cmds,
-    config = function()
-        require("hlslens").setup({})
-        -- TODO: Fix noice.nvim warning
-        -- WARN: You added `S` to `vim.opt.shortmess`.
-        -- Search count messages will not be handled by Noice.
-        -- So no virtual text for search count.
-        --vim.opt.shortmess:append("S")
-    end,
+    opts = {},
     --cond = false,
 }
 
