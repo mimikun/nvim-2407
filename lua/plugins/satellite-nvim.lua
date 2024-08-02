@@ -1,35 +1,38 @@
 ---@type table
+local cmds = {
+    "SatelliteEnable",
+    "SatelliteDisable",
+    "SatelliteRefresh",
+}
+
+---@type LazySpec[]
+local dependencies = {
+    "lewis6991/gitsigns.nvim",
+}
+
+---@type table
 local opts = {
-    current_only = false,
-    winblend = 50,
-    zindex = 40,
-    excluded_filetypes = {},
-    width = 2,
+    excluded_filetypes = {
+        "cmp_docs",
+        "cmp_menu",
+        "noice",
+        "prompt",
+        "TelescopePrompt",
+        "alpha",
+    },
     handlers = {
         cursor = {
-            enable = true,
             symbols = { "⎺", "⎻", "⎼", "⎽" },
         },
-        search = {
-            enable = true,
-        },
         diagnostic = {
-            enable = true,
             signs = { "-", "=", "≡" },
-            min_severity = vim.diagnostic.severity.HINT,
         },
         gitsigns = {
-            enable = true,
             signs = {
                 add = "│",
                 change = "│",
                 delete = "-",
             },
-        },
-        marks = {
-            enable = true,
-            show_builtins = false,
-            key = "m",
         },
         quickfix = {
             signs = { "-", "=", "≡" },
@@ -40,10 +43,14 @@ local opts = {
 ---@type LazySpec
 local spec = {
     "lewis6991/satellite.nvim",
-    lazy = false,
+    --lazy = false,
+    cmd = cmds,
+    event = "VimEnter",
+    dependencies = dependencies,
     opts = opts,
     --cond = false,
-    enabled = false,
+    -- TODO: scrollbar plugin
+    --enabled = false,
 }
 
 return spec

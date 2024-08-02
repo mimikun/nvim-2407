@@ -1,10 +1,11 @@
 ---@type LazySpec
 local spec = {
-    "ellisonleao/glow.nvim",
+    "Bekaboo/deadcolumn.nvim",
     --lazy = false,
-    cmd = "Glow",
-    config = true,
+    event = "BufEnter",
+    opts = {},
     --cond = false,
+    -- TODO: colorcolumn plugin
     enabled = false,
 }
 

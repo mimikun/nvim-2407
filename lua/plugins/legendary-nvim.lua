@@ -1,10 +1,10 @@
 ---@type table
 local cmds = {
-    "LegendaryRepeat",
     "Legendary",
+    "LegendaryRepeat",
 }
 
----@type table
+---@type LazySpec[]
 local dependencies = {
     "kkharji/sqlite.lua",
 }
@@ -19,11 +19,14 @@ local opts = {
         itemgroup = "",
     },
     extensions = {
-        nvim_tree = true,
         lazy_nvim = true,
         which_key = {
             auto_register = true,
         },
+        nvim_tree = true,
+        smart_splits = false,
+        op_nvim = false,
+        diffview = true,
     },
 }
 
@@ -36,7 +39,6 @@ local spec = {
     opts = opts,
     --cond = false,
     priority = 10000,
-    enabled = false,
 }
 
 return spec

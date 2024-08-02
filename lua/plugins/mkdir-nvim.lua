@@ -1,4 +1,4 @@
----@type table
+---@type LazyKeysSpec[]
 local keys = {
     { "w", mode = "c", desc = "You can mkdir -p" },
 }
@@ -9,7 +9,6 @@ local spec = {
     --lazy = false,
     keys = keys,
     --cond = false,
-    enabled = false,
 }
 
 return spec

@@ -85,10 +85,13 @@ local sections = {
 ---@type table
 local tabline = {
     lualine_a = {
+        -- TODO: bufferline plugin
+        --[[
         {
             "buffers",
             symbols = { modified = "_󰷥", alternate_file = " ", directory = " " },
         },
+        ]]
     },
     lualine_b = {},
     lualine_c = {},
@@ -117,20 +120,18 @@ local winbar = {
 local opts = {
     options = options,
     sections = sections,
-    tabline = tabline,
-    winbar = winbar,
-}
-
----@type table
-local events = {
-    "BufEnter",
+    -- TODO: tabline plugin
+    --tabline = tabline,
+    tabline = {},
+    -- TODO: winbar plugin
+    --winbar = winbar,
+    winbar = {},
 }
 
 ---@type table
 local dependencies = {
     "nvim-tree/nvim-web-devicons",
     "lewis6991/gitsigns.nvim",
-    --"meuter/lualine-so-fancy.nvim",
     "SmiteshP/nvim-navic",
 }
 
@@ -138,7 +139,7 @@ local dependencies = {
 local spec = {
     "nvim-lualine/lualine.nvim",
     --lazy = false,
-    event = events,
+    event = "BufEnter",
     dependencies = dependencies,
     opts = opts,
     --cond = false,

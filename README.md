@@ -22,9 +22,11 @@ denopsなど主流ではない技術のプラグインは使わない
 
 - [ ] https://github.com/mfussenegger/nvim-lint
 - [ ] https://github.com/stevearc/conform.nvim
-- [ ] カッコとじ系プラグイン
-- [ ] markdown render
 - [ ] dial-nvim.lua
+- [ ] markview-nvim.lua
+- [ ] nvim-bqf.lua
+- [ ] render-markdown.lua
+- [ ] barbecue-nvim.lua
 
 ### カッコとじ系プラグイン
 

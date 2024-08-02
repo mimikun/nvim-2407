@@ -32,6 +32,8 @@ local spec = {
         require("scrollbar.handlers.gitsigns").setup()
     end,
     --cond = false,
+    -- TODO: scrollbar plugin
+    enabled = false,
 }
 
 return spec

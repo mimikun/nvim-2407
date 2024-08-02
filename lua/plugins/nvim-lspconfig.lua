@@ -54,9 +54,9 @@ local keys = {
 
 ---@type LazySpec[]
 local dependencies = {
-    --"nvimdev/lspsaga.nvim",
-    --"nvim-treesitter/nvim-treesitter",
-    --"nvim-tree/nvim-web-devicons",
+    "nvimdev/lspsaga.nvim",
+    "nvim-treesitter/nvim-treesitter",
+    "nvim-tree/nvim-web-devicons",
 }
 
 ---@type LazySpec

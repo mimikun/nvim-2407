@@ -18,56 +18,91 @@ local cmds = {
     "BufferLineMovePrev",
 }
 
----@type table
-local events = { "BufReadPre", "BufNewFile" }
+---@type LazyKeysSpec[]
+local keys = {
+    {
+        "[b",
+        function()
+            vim.cmd([[BufferLineCycleNext]])
+        end,
+        mode = "n",
+        desc = "BufferLineCycleNext",
+    },
+    {
+        "b]",
+        function()
+            vim.cmd([[BufferLineCyclePrev]])
+        end,
+        mode = "n",
+        desc = "BufferLineCyclePrev",
+    },
+    -- TODO: write keybind
+    --nnoremap <silent> gb :BufferLinePick<CR>
+    --nnoremap <silent> gD :BufferLinePickClose<CR>
+    --nnoremap <silent><leader>1 <cmd>lua require("bufferline").go_to(1, true)<cr>
+    --nnoremap <silent><leader>2 <cmd>lua require("bufferline").go_to(2, true)<cr>
+    --nnoremap <silent><leader>3 <cmd>lua require("bufferline").go_to(3, true)<cr>
+    --nnoremap <silent><leader>4 <cmd>lua require("bufferline").go_to(4, true)<cr>
+    --nnoremap <silent><leader>5 <cmd>lua require("bufferline").go_to(5, true)<cr>
+    --nnoremap <silent><leader>6 <cmd>lua require("bufferline").go_to(6, true)<cr>
+    --nnoremap <silent><leader>7 <cmd>lua require("bufferline").go_to(7, true)<cr>
+    --nnoremap <silent><leader>8 <cmd>lua require("bufferline").go_to(8, true)<cr>
+    --nnoremap <silent><leader>9 <cmd>lua require("bufferline").go_to(9, true)<cr>
+    --nnoremap <silent><leader>$ <cmd>lua require("bufferline").go_to(-1, true)<cr>
+}
+
+---@type LazySpec[]
+local dependencies = {
+    "nvim-tree/nvim-web-devicons",
+    "famiu/bufdelete.nvim",
+}
 
 ---@type LazySpec
 local spec = {
     "akinsho/bufferline.nvim",
+    version = "*",
     --lazy = false,
     cmd = cmds,
-    event = events,
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    keys = keys,
+    event = "BufEnter",
+    dependencies = dependencies,
     init = function()
-        vim.opt.mousemoveevent = true
+        vim.opt.termguicolors = true
     end,
     config = function()
         local bufferline = require("bufferline")
+        local bufdelete = require("bufdelete").bufdelete
+
         bufferline.setup({
             options = {
                 mode = "buffers",
-                style_preset = bufferline.style_preset.minimal,
+                style_preset = {
+                    bufferline.style_preset.no_italic,
+                    bufferline.style_preset.no_bold,
+                    bufferline.style_preset.minimal,
+                },
                 themable = false,
-                numbers = "ordinal",
-                -- Close with the close button
-                close_command = "bdelete! %d",
-                -- Right click to split vertically
+                numbers = "id",
+                close_command = function(bufnum)
+                    bufdelete(bufnum, true)
+                end,
                 right_mouse_command = "vertical sbuffer %d",
-                -- TODO: left click
-                left_mouse_command = nil,
-                -- Middle click to close
-                middle_mouse_command = "bdelete! %d",
+                left_mouse_command = "buffer %d",
+                middle_mouse_command = function(bufnum)
+                    bufdelete(bufnum, true)
+                end,
                 indicator = {
-                    -- TODO: Use utils/icons.lua
                     icon = "▎",
                     style = "icon",
                 },
-                -- TODO: Use utils/icons.lua
                 buffer_close_icon = "",
-                -- TODO: Use utils/icons.lua
                 modified_icon = "●",
-                -- TODO: Use utils/icons.lua
                 close_icon = "",
-                -- TODO: Use utils/icons.lua
                 left_trunc_marker = "",
-                -- TODO: Use utils/icons.lua
                 right_trunc_marker = "",
-                max_name_length = 18,
-                max_prefix_length = 15,
-                truncate_names = true,
-                tab_size = 18,
                 diagnostics = "nvim_lsp",
                 diagnostics_update_in_insert = false,
+                diagnostics_update_on_event = true,
                 diagnostics_indicator = function(count, level, diagnostics_dict, context)
                     local icon = level:match("error") and " " or ""
                     return " " .. icon .. "(" .. count .. ")"
@@ -105,7 +140,6 @@ local spec = {
                 },
                 custom_areas = {
                     right = function()
-                        ---@type table
                         local result = {}
                         table.insert(result, { text = " コロナを忘れるな！ ", fg = "#EC5241" })
                         return result
@@ -115,6 +149,7 @@ local spec = {
         })
     end,
     --cond = false,
+    -- TODO: bufferline plugin
     enabled = false,
 }
 
