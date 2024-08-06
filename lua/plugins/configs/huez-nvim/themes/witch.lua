@@ -3,25 +3,20 @@
 ---@type Huez.ThemeConfig
 local M = {
     styles = {
-        "darker",
-        "lighter",
-        "oceanic",
-        "palenight",
-        "deep ocean",
+        "witch-dark",
+        "witch-light",
     },
 }
 
 function M.set_theme(theme)
-    print("material.nvim setting")
+    print("witch.nvim setting")
 
     ---@type table
     local opts = {
-        disable = {
-            background = not vim.g.transparent_enabled,
-        },
+        -- NOTE: Not support "transparent = true"
     }
 
-    require("material").setup(opts)
+    require("witch").setup(opts)
 
     vim.cmd("colorscheme " .. theme)
     return true

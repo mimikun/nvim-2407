@@ -4,14 +4,14 @@
 local M = {}
 
 function M.set_theme(theme)
-    print("pastelnight.nvim setting")
+    print("eldritch.nvim setting")
 
-    ---@type table
+    ---@type Config
     local opts = {
         transparent = vim.g.transparent_enabled,
     }
 
-    require("pastelnight").setup(opts)
+    require("eldritch").setup(opts)
 
     vim.cmd("colorscheme " .. theme)
     return true

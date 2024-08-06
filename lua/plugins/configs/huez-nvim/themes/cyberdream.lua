@@ -4,14 +4,18 @@
 local M = {}
 
 function M.set_theme(theme)
-    print("pastelnight.nvim setting")
+    print("cyberdream.nvim setting")
 
-    ---@type table
+    ---@type Config
     local opts = {
         transparent = vim.g.transparent_enabled,
+        italic_comments = true,
+        hide_fillchars = true,
+        borderless_telescope = true,
+        terminal_colors = true,
     }
 
-    require("pastelnight").setup(opts)
+    require("cyberdream").setup(opts)
 
     vim.cmd("colorscheme " .. theme)
     return true

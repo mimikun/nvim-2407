@@ -4,14 +4,14 @@
 local M = {}
 
 function M.set_theme(theme)
-    print("pastelnight.nvim setting")
+    print("evergarden.nvim setting")
 
-    ---@type table
+    ---@type evergarden.types.config
     local opts = {
-        transparent = vim.g.transparent_enabled,
+        transparent_background = vim.g.transparent_enabled,
     }
 
-    require("pastelnight").setup(opts)
+    require("evergarden").setup(opts)
 
     vim.cmd("colorscheme " .. theme)
     return true

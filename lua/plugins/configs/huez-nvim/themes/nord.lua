@@ -4,14 +4,9 @@
 local M = {}
 
 function M.set_theme(theme)
-    print("pastelnight.nvim setting")
+    print("nord setting")
 
-    ---@type table
-    local opts = {
-        transparent = vim.g.transparent_enabled,
-    }
-
-    require("pastelnight").setup(opts)
+    vim.g.nord_disable_background = vim.g.transparent_enabled
 
     vim.cmd("colorscheme " .. theme)
     return true

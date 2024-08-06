@@ -44,14 +44,6 @@ local opts = {
                 default_target = "ja",
             },
         },
-        -- TODO: config it
-        -- NOTE: MUST SET `DEEPL_AUTH_KEY` env-var
-        --[[
-        deepl = {
-            default_source = "",
-            default_target = "",
-        },
-        ]]
     },
 }
 

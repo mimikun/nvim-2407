@@ -2,7 +2,12 @@
 
 ---@type Huez.ThemeConfig
 local M = {
-    styles = { "latte", "frappe", "macchiato", "mocha" },
+    styles = {
+        "latte",
+        "frappe",
+        "macchiato",
+        "mocha",
+    },
 }
 
 function M.set_theme(theme)

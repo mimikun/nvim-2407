@@ -4,14 +4,14 @@
 local M = {}
 
 function M.set_theme(theme)
-    print("pastelnight.nvim setting")
+    print("gaming setting")
 
-    ---@type table
-    local opts = {
-        transparent = vim.g.transparent_enabled,
-    }
+    -- NOTE: Not support "transparent = true"
 
-    require("pastelnight").setup(opts)
+    -- N ms colors cycle
+    vim.g["gaming#period"] = 500
+    -- Updating colors every N ms
+    vim.g["gaming#update_time"] = 50
 
     vim.cmd("colorscheme " .. theme)
     return true

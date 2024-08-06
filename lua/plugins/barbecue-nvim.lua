@@ -4,22 +4,59 @@ local dependencies = {
     "nvim-tree/nvim-web-devicons",
 }
 
+---@type barbecue.Config
+local opts = {
+    exclude_filetypes = { "netrw", "toggleterm" },
+    symbols = {
+        -- Modification indicator.
+        modified = "●",
+        -- Truncation indicator.
+        ellipsis = "…",
+        -- Entry separator.
+        separator = "",
+    },
+    kinds = {
+        File = "",
+        Module = "",
+        Namespace = "",
+        Package = "",
+        Class = "",
+        Method = "",
+        Property = "",
+        Field = "",
+        Constructor = "",
+        Enum = "",
+        Interface = "",
+        Function = "",
+        Variable = "",
+        Constant = "",
+        String = "",
+        Number = "",
+        Boolean = "",
+        Array = "",
+        Object = "",
+        Key = "",
+        Null = "",
+        EnumMember = "",
+        Struct = "",
+        Event = "",
+        Operator = "",
+        TypeParameter = "",
+    },
+}
+
 ---@type LazySpec
 local spec = {
     "utilyre/barbecue.nvim",
     name = "barbecue",
     version = "*",
-    lazy = false,
-    --ft = "",
-    --cmd = "CMDNAME",
-    --keys = "",
-    --event = "VeryLazy",
+    --lazy = false,
+    cmd = "Barbecue",
+    event = "BufEnter",
     dependencies = dependencies,
-    --init = function()
-    --    INIT
-    --end,
-    opts = {},
+    opts = opts,
     --cond = false,
+    -- TODO: winbar plugin
     enabled = false,
 }
 

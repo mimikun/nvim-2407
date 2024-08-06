@@ -2,7 +2,12 @@
 
 ---@type Huez.ThemeConfig
 local M = {
-    styles = { "moon", "day", "night", "storm" },
+    styles = {
+        "moon",
+        "day",
+        "night",
+        "storm",
+    },
 }
 
 function M.set_theme(theme)

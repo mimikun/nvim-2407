@@ -15,12 +15,16 @@ local cmds = {
 
 ---@type table
 local dependencies = {
-    "folke/tokyonight.nvim",
-    { "catppuccin/nvim", name = "catppuccin" },
-    "marko-cerovac/material.nvim",
+    -- main colorscheme
     "pauchiner/pastelnight.nvim",
-    "loctvl842/monokai-pro.nvim",
-    "projekt0n/github-nvim-theme",
+    -- sub colorscheme
+    "folke/tokyonight.nvim",
+    -- 'named' colorscheme
+    { "catppuccin/nvim", name = "catppuccin", optional = true },
+    -- other dependencies
+    { "rktjmp/lush.nvim", optional = true },
+    { "loganswartz/polychrome.nvim", optional = true },
+    { "Iron-E/nvim-highlite", optional = true },
 }
 
 ---@type LazySpec

@@ -36,19 +36,102 @@ local keys = {
         mode = "n",
         desc = "BufferLineCyclePrev",
     },
-    -- TODO: write keybind
-    --nnoremap <silent> gb :BufferLinePick<CR>
-    --nnoremap <silent> gD :BufferLinePickClose<CR>
-    --nnoremap <silent><leader>1 <cmd>lua require("bufferline").go_to(1, true)<cr>
-    --nnoremap <silent><leader>2 <cmd>lua require("bufferline").go_to(2, true)<cr>
-    --nnoremap <silent><leader>3 <cmd>lua require("bufferline").go_to(3, true)<cr>
-    --nnoremap <silent><leader>4 <cmd>lua require("bufferline").go_to(4, true)<cr>
-    --nnoremap <silent><leader>5 <cmd>lua require("bufferline").go_to(5, true)<cr>
-    --nnoremap <silent><leader>6 <cmd>lua require("bufferline").go_to(6, true)<cr>
-    --nnoremap <silent><leader>7 <cmd>lua require("bufferline").go_to(7, true)<cr>
-    --nnoremap <silent><leader>8 <cmd>lua require("bufferline").go_to(8, true)<cr>
-    --nnoremap <silent><leader>9 <cmd>lua require("bufferline").go_to(9, true)<cr>
-    --nnoremap <silent><leader>$ <cmd>lua require("bufferline").go_to(-1, true)<cr>
+    {
+        "gb",
+        function()
+            vim.cmd([[BufferLinePick]])
+        end,
+        mode = "n",
+        desc = "BufferLinePick",
+    },
+    {
+        "gD",
+        function()
+            vim.cmd([[BufferLinePickClose]])
+        end,
+        mode = "n",
+        desc = "BufferLinePickClose",
+    },
+    {
+        "<leader>1",
+        function()
+            require("bufferline").go_to(1, true)
+        end,
+        mode = "n",
+        desc = "Select buffer 1",
+    },
+    {
+        "<leader>2",
+        function()
+            require("bufferline").go_to(2, true)
+        end,
+        mode = "n",
+        desc = "Select buffer 2",
+    },
+    {
+        "<leader>3",
+        function()
+            require("bufferline").go_to(3, true)
+        end,
+        mode = "n",
+        desc = "Select buffer 3",
+    },
+    {
+        "<leader>4",
+        function()
+            require("bufferline").go_to(4, true)
+        end,
+        mode = "n",
+        desc = "Select buffer 4",
+    },
+    {
+        "<leader>5",
+        function()
+            require("bufferline").go_to(5, true)
+        end,
+        mode = "n",
+        desc = "Select buffer 5",
+    },
+    {
+        "<leader>6",
+        function()
+            require("bufferline").go_to(6, true)
+        end,
+        mode = "n",
+        desc = "Select buffer 6",
+    },
+    {
+        "<leader>7",
+        function()
+            require("bufferline").go_to(7, true)
+        end,
+        mode = "n",
+        desc = "Select buffer 7",
+    },
+    {
+        "<leader>8",
+        function()
+            require("bufferline").go_to(8, true)
+        end,
+        mode = "n",
+        desc = "Select buffer 8",
+    },
+    {
+        "<leader>9",
+        function()
+            require("bufferline").go_to(9, true)
+        end,
+        mode = "n",
+        desc = "Select buffer 9",
+    },
+    {
+        "<leader>$",
+        function()
+            require("bufferline").go_to(-1, true)
+        end,
+        mode = "n",
+        desc = "Select buffer -1",
+    },
 }
 
 ---@type LazySpec[]

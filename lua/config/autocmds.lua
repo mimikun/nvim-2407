@@ -1,4 +1,4 @@
--- TODO:
+-- TODO: config it
 -- Conceal all Special Characters with 💩
 local function conceal_all_special_chars()
     -- 全角スペース: IDEOGRAPHIC SPACE (U+3000)

@@ -10,23 +10,32 @@ set -Ux NVIM_APPNAME nvim-2407
 
 ## Note
 
-denopsなど主流ではない技術のプラグインは使わない
-
-テスト段階ではtreesitterのパーサはLuaだけいれる
-
-同様にlspサーバもLuaだけ
-
-理由: 人権がないと時間がかかるため
+- denopsなど外部依存を必要とするプラグインは使わない
+    - 理由: 人権がないとまともに動かない
+- テスト段階ではtreesitterやmasonのものは最低限だけいれる
+    - 理由: 人権がないとインストールに時間かかる
+- プラグインファイルの名前の付け方
+    - [rocks-config.nvim の Note にあるやり方](https://github.com/nvim-neorocks/rocks-config.nvim?tab=readme-ov-file#options) に従う
 
 ## TODO
 
-- [ ] https://github.com/mfussenegger/nvim-lint
-- [ ] https://github.com/stevearc/conform.nvim
-- [ ] dial-nvim.lua
-- [ ] markview-nvim.lua
-- [ ] nvim-bqf.lua
-- [ ] render-markdown.lua
-- [ ] barbecue-nvim.lua
+- [ ] choice `カッコとじ系プラグイン`
+- [ ] choice `markdown render`
+- [ ] choice `null-ls replace`
+
+### null-ls replace
+
+- [ ] 組み合わせ
+    - [ ] https://github.com/mfussenegger/nvim-lint
+    - [ ] https://github.com/rshkarin/mason-nvim-lint
+    - [ ] https://github.com/stevearc/conform.nvim
+    - [ ] https://github.com/zapling/mason-conform.nvim
+- [ ] 現状維持
+    - [ ] https://github.com/nvimtools/none-ls.nvim
+    - [ ] https://github.com/jay-babu/mason-null-ls.nvim
+- [ ] de facto standard in Japan
+    - [ ] https://github.com/mattn/efm-langserver
+    - [ ] https://github.com/creativenull/efmls-configs-nvim
 
 ### カッコとじ系プラグイン
 
@@ -41,6 +50,5 @@ denopsなど主流ではない技術のプラグインは使わない
 
 ### markdown render
 
-- [ ] https://github.com/MeanderingProgrammer/markdown.nvim
+- [ ] https://github.com/MeanderingProgrammer/render-markdown.nvim
 - [ ] https://github.com/OXY2DEV/markview.nvim
-

@@ -3,25 +3,25 @@
 ---@type Huez.ThemeConfig
 local M = {
     styles = {
-        "darker",
-        "lighter",
-        "oceanic",
-        "palenight",
-        "deep ocean",
+        "nightfall",
+        "deeper-night",
+        "maron",
     },
 }
 
 function M.set_theme(theme)
-    print("material.nvim setting")
+    print("nightfall.nvim setting")
 
     ---@type table
     local opts = {
-        disable = {
-            background = not vim.g.transparent_enabled,
+        transparent = vim.g.transparent_enabled,
+        dim_inactive = false,
+        integrations = {
+            illuminate = { enabled = false },
         },
     }
 
-    require("material").setup(opts)
+    require("nightfall").setup(opts)
 
     vim.cmd("colorscheme " .. theme)
     return true

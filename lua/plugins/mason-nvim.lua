@@ -15,6 +15,10 @@ local cmds = {
     -- mason-nvim-dap
     "DapInstall",
     "DapUninstall",
+    -- TODO: null-ls replace plugin `pattern 2`
+    -- mason-null-ls
+    --"NoneLsInstall",
+    --"NoneLsUninstall",
 }
 
 ---@type LazySpec[]
@@ -25,12 +29,6 @@ local dependencies = {
     -- DAP plugins
     "mfussenegger/nvim-dap",
     "jay-babu/mason-nvim-dap.nvim",
-    -- Linter plugins
-    "mfussenegger/nvim-lint",
-    "rshkarin/mason-nvim-lint",
-    -- Formatter plugins
-    "stevearc/conform.nvim",
-    "zapling/mason-conform.nvim",
     -- Other deps
     "folke/lazydev.nvim",
     "Bilal2453/luvit-meta",
@@ -40,6 +38,26 @@ local dependencies = {
     "zapling/mason-lock.nvim",
     "folke/neoconf.nvim",
     "b0o/schemastore.nvim",
+    -- TODO: null-ls replace plugin `pattern 1`
+    --[[
+    -- Linter plugins
+    "mfussenegger/nvim-lint",
+    "rshkarin/mason-nvim-lint",
+    -- Formatter plugins
+    "stevearc/conform.nvim",
+    "zapling/mason-conform.nvim",
+    ]]
+    -- TODO: null-ls replace plugin `pattern 2`
+    -- null-ls
+    "nvimtools/none-ls.nvim",
+    "jay-babu/mason-null-ls.nvim",
+    -- TODO: null-ls replace plugin `pattern 3`
+    --[[
+    {
+        "creativenull/efmls-configs-nvim",
+        version = "v1.x.x",
+    },
+    ]]
 }
 
 ---@type table
@@ -78,7 +96,7 @@ local spec = {
         mason_lspconfig.setup({
             --ensure_installed = require("plugins.configs.lspconfigs.need_servers"),
             -- TODO: test only, remove it
-            ensure_installed = { "lua_ls", "rust_analyzer" },
+            ensure_installed = { "lua_ls", "rust_analyzer", "efm" },
         })
 
         mason_lspconfig.setup_handlers({
@@ -103,18 +121,43 @@ local spec = {
         lspconfig.jsonls.setup({})
         lspconfig.yamlls.setup({})
 
-        -- DAP
-        mason_nvim_dap.setup({
-            --ensure_installed = require("plugins.configs.nvim-dap.need_adapters"),
-            -- TODO: test only, remove it
-            ensure_installed = { "python" },
-            handlers = {
-                function(config)
-                    mason_nvim_dap.default_setup(config)
-                end,
-            },
-        })
+        -- TODO: null-ls replace plugin `pattern 3`
+        --[[
+        local eslint = require("efmls-configs.linters.eslint")
+        local prettier = require("efmls-configs.formatters.prettier")
+        local stylua = require("efmls-configs.formatters.stylua")
+        local languages = {
+            typescript = { eslint, prettier },
+            lua = { stylua },
+        }
 
+        -- Or use the defaults provided by this plugin
+        -- check doc/SUPPORTED_LIST.md for the supported languages
+        --
+        -- local languages = require('efmls-configs.defaults').languages()
+
+        local efmls_config = {
+            filetypes = vim.tbl_keys(languages),
+            settings = {
+                rootMarkers = { ".git/" },
+                languages = languages,
+            },
+            init_options = {
+                documentFormatting = true,
+                documentRangeFormatting = true,
+            },
+        }
+
+        lspconfig.efm.setup(vim.tbl_extend("force", efmls_config, {
+            -- Pass your custom lsp config below like on_attach and capabilities
+            --
+            -- on_attach = on_attach,
+            -- capabilities = capabilities,
+        }))
+        ]]
+
+        -- TODO: null-ls replace plugin `pattern 1`
+        --[[
         -- Linter
         require("mason-nvim-lint").setup({
             --ensure_installed = require("plugins.configs.nvim-lint.need_linters"),
@@ -127,7 +170,25 @@ local spec = {
         require("mason-conform").setup({
             --ignore_install = require("plugins.configs.conform-nvim.ignore_formatters"),
             -- TODO: test only, remove it
-            ignore_install = { "prettier" },
+            --ignore_install = { "prettier" },
+        })
+        ]]
+
+        -- TODO: null-ls replace plugin `pattern 2`
+        require("mason-null-ls").setup({
+            handlers = {},
+        })
+
+        -- DAP
+        mason_nvim_dap.setup({
+            --ensure_installed = require("plugins.configs.nvim-dap.need_adapters"),
+            -- TODO: test only, remove it
+            ensure_installed = { "python" },
+            handlers = {
+                function(config)
+                    mason_nvim_dap.default_setup(config)
+                end,
+            },
         })
 
         -- Utils

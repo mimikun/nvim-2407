@@ -3,25 +3,22 @@
 ---@type Huez.ThemeConfig
 local M = {
     styles = {
-        "darker",
-        "lighter",
-        "oceanic",
-        "palenight",
-        "deep ocean",
+        "monokai",
+        "monokai_pro",
+        "monokai_ristretto",
+        "monokai_soda",
     },
 }
 
 function M.set_theme(theme)
-    print("material.nvim setting")
+    print("monokai.nvim setting")
 
     ---@type table
     local opts = {
-        disable = {
-            background = not vim.g.transparent_enabled,
-        },
+        -- NOTE: Not support "transparent = true"
     }
 
-    require("material").setup(opts)
+    require("monokai").setup(opts)
 
     vim.cmd("colorscheme " .. theme)
     return true

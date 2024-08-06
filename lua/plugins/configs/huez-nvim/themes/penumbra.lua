@@ -4,14 +4,20 @@
 local M = {}
 
 function M.set_theme(theme)
-    print("pastelnight.nvim setting")
+    print("penumbra.nvim setting")
 
     ---@type table
     local opts = {
-        transparent = vim.g.transparent_enabled,
+        italic_comment = false,
+        transparent_bg = vim.g.transparent_enabled,
+        show_end_of_buffer = false,
+        light = false,
+        contrast = nil,
+        --contrast = "plus",
+        --contrast = "plusplus",
     }
 
-    require("pastelnight").setup(opts)
+    require("penumbra").setup(opts)
 
     vim.cmd("colorscheme " .. theme)
     return true

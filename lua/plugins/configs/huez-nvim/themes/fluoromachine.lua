@@ -4,14 +4,19 @@
 local M = {}
 
 function M.set_theme(theme)
-    print("pastelnight.nvim setting")
+    print("fluoromachine.nvim setting")
 
-    ---@type table
+    ---@type fm.config
     local opts = {
+        theme = "fluoromachine",
+        --theme = "retrowave",
+        --theme = "delta",
+        brightness = 0.05,
+        glow = false,
         transparent = vim.g.transparent_enabled,
     }
 
-    require("pastelnight").setup(opts)
+    require("fluoromachine").setup(opts)
 
     vim.cmd("colorscheme " .. theme)
     return true
