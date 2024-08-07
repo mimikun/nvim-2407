@@ -19,8 +19,12 @@ set -Ux NVIM_APPNAME nvim-2407
 
 ## TODO
 
-- [ ] nvim-cmp.lua
-- [ ] nvim-lspconfig.lua
-- [ ] mason-nvim.lua
-- [ ] nvim-treesitter.lua
+- [ ] `Lazy sync` すると画面がガクガク揺れる
+- [ ] `:q` で閉じたあと中身が見えたままになる
 - [ ] barbar-nvim.lua
+    - keymaps
+- [ ] 欲しいの全部いれる(本番前の確認)
+    - [ ] nvim-cmp.lua
+    - [ ] nvim-lspconfig.lua
+    - [ ] mason-nvim.lua
+    - [ ] nvim-treesitter.lua
