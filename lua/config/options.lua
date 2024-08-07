@@ -15,7 +15,7 @@ vim.opt.fileencodings = { "utf-8", "cp932", "ucs-bombs", "euc-jp" }
 
 -- 全角文字の表示に2文字分使うようにする
 ---@type string
-vim.opt.ambiwidth = "double"
+--vim.opt.ambiwidth = "double"
 
 -- スワップファイルを作成しないようにする
 ---@type boolean
