@@ -1,8 +1,8 @@
 ---@type LazySpec
 local spec = {
-    "NStefan002/2048.nvim",
+    "ellisonleao/glow.nvim",
     --lazy = false,
-    cmd = "Play2048",
+    cmd = "Glow",
     opts = {},
     --cond = false,
 }

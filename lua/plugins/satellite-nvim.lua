@@ -49,7 +49,7 @@ local spec = {
     dependencies = dependencies,
     opts = opts,
     --cond = false,
-    -- TODO: scrollbar plugin
+    -- NOTE: scrollbar plugin
     --enabled = false,
 }
 

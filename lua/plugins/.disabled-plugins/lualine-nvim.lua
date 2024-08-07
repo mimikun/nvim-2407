@@ -25,7 +25,13 @@ local function diff_source()
     end
 end
 
----@type table
+---@return string
+local function special_notice()
+    local special_msg = "コロナを忘れるな！"
+    return special_msg
+end
+
+---@type
 local disabled_filetypes = {
     statusline = { "NvimTree", "alpha", "gitrebase", "gitcommit" },
     winbar = { "NvimTree", "alpha", "gitrebase", "gitcommit" },
@@ -78,35 +84,51 @@ local sections = {
 
 ---@type table
 local tabline = {
-    --lualine_a = {},
-    --lualine_b = {},
-    --lualine_c = {},
-    --lualine_x = {},
-    --lualine_y = {},
-    --lualine_z = {},
+    lualine_a = {
+        -- TODO: bufferline plugin
+        --[[
+        {
+            "buffers",
+            symbols = { modified = "_󰷥", alternate_file = " ", directory = " " },
+        },
+        ]]
+    },
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {
+        "diff",
+    },
+    lualine_y = {
+        "branch",
+    },
+    lualine_z = {
+        "tabs",
+    },
 }
 
 ---@type table
 local winbar = {
-    --lualine_a = {},
-    --lualine_b = { special_notice },
-    --lualine_c = {},
-    --lualine_x = {},
-    --lualine_y = {},
-    --lualine_z = {},
+    lualine_a = {},
+    lualine_b = { special_notice },
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {},
 }
 
 ---@type table
 local opts = {
     options = options,
     sections = sections,
-    -- NOTE: bufferline/tabline plugin
-    tabline = tabline,
-    -- NOTE: winbar plugin
-    winbar = winbar,
+    -- TODO: bufferline/tabline plugin
+    --tabline = tabline,
+    tabline = {},
+    -- TODO: winbar plugin
+    --winbar = winbar,
+    winbar = {},
 }
 
----@type LazySpec[]
+---@type table
 local dependencies = {
     "nvim-tree/nvim-web-devicons",
     "lewis6991/gitsigns.nvim",

@@ -13,7 +13,7 @@ local spec = {
     event = "BufEnter",
     opts = opts,
     --cond = false,
-    -- TODO: statuscolumn plugin
+    -- NOTE: statuscolumn plugin
     enabled = false,
 }
 

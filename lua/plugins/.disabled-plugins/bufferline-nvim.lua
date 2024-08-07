@@ -232,7 +232,7 @@ local spec = {
         })
     end,
     --cond = false,
-    -- TODO: bufferline plugin
+    -- NOTE: bufferline plugin
     enabled = false,
 }
 

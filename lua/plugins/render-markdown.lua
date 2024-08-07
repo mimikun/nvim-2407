@@ -100,10 +100,17 @@ local spec = {
     init = function()
         vim.treesitter.language.register("markdown", "vimwiki")
     end,
-    opts = opts,
+    config = function()
+        local rm = require("render-markdown")
+
+        rm.setup(opts)
+
+        -- default off
+        rm.disable()
+    end,
     --cond = false,
-    -- TODO: markdown-render plugin
-    enabled = false,
+    -- NOTE: markdown-render plugin
+    --enabled = false,
 }
 
 return spec

@@ -7,7 +7,7 @@ local spec = {
         require("insx.preset.standard").setup({})
     end,
     --cond = false,
-    -- TODO: autopair plugin
+    -- NOTE: autopair plugin
     enabled = false,
 }
 

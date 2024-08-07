@@ -56,7 +56,7 @@ local spec = {
     dependencies = dependencies,
     opts = opts,
     --cond = false,
-    -- TODO: winbar plugin
+    -- NOTE: winbar plugin
     enabled = false,
 }
 

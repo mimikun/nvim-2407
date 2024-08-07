@@ -10,7 +10,7 @@ local spec = {
     event = "BufEnter",
     opts = opts,
     --cond = false,
-    -- TODO: colorcolumn plugin
+    -- NOTE: colorcolumn plugin
     enabled = false,
 }
 

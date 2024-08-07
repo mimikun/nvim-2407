@@ -16,7 +16,7 @@ local spec = {
         vim.g.lexima_disable_abbrev_trigger = 0
     end,
     --cond = false,
-    -- TODO: autopair plugin
+    -- NOTE: autopair plugin
     enabled = false,
 }
 

@@ -33,7 +33,7 @@ local spec = {
         })
     end,
     --cond = false,
-    -- TODO: null-ls replace plugin `pattern 1`
+    -- NOTE: null-ls replace plugin `pattern 1`
     enabled = false,
 }
 
