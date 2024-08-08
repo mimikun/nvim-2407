@@ -1,112 +1,89 @@
--- README
-local readme = {}
+local installed_plugins = require("lazy").plugins()
+local installed_servers = require("lspconfig").util.available_servers()
+local installed_parsers = require("nvim-treesitter.configs").get_ensure_installed_parsers()
+local installed_packages = require("mason-registry").get_installed_package_names()
 
---- Get plugins markdown-link
----@return table
-local get_plugins = function()
-    local plugins = {}
-    local it = vim.iter(require("lazy").plugins())
+-- Get plugins markdown-link
+local plugins = {
+    string.format("## Plugins - %s plugins", vim.tbl_count(installed_plugins)),
+}
 
-    it:map(function(plugin)
-        local name = plugin.name
-        local url = string.gsub(plugin.url, ".git$", "")
-        local md_link = string.format("- [%s](%s)", name, url)
-        --print(md_link)
-        table.insert(plugins, md_link)
-    end)
-    return plugins
+vim.iter(installed_plugins):map(function(p)
+    local name = p.name
+    local url = string.gsub(p.url, ".git$", "")
+    local md_link = string.format("- [%s](%s)", name, url)
+    table.insert(plugins, md_link)
+end)
+
+-- Get lsp servers
+local servers = {
+    string.format("## LSP servers - %s servers", vim.tbl_count(installed_servers)),
+}
+
+vim.iter(installed_servers):map(function(s)
+    local name = string.format("- %s", s)
+    table.insert(servers, name)
+end)
+
+-- Get the installed treesitter parsers
+local parsers = {
+    string.format("## Treesitter parsers - %s parsers", vim.tbl_count(installed_parsers)),
+}
+
+vim.iter(installed_parsers):map(function(p)
+    local name = string.format("- %s", p)
+    table.insert(parsers, name)
+end)
+
+-- Get the installed packages by mason.nvim
+-- NOTE: https://github.com/williamboman/mason.nvim/discussions/1026
+
+local packages = {
+    string.format("## Mason installed packages - %s packages", vim.tbl_count(installed_packages)),
+}
+
+vim.iter(installed_packages):map(function(p)
+    local name = string.format("- %s", p)
+    table.insert(packages, name)
+end)
+
+table.sort(plugins)
+table.sort(servers)
+table.sort(parsers)
+table.sort(packages)
+
+local disp = function(elem)
+    local tmp = table.concat(elem, "\n")
+    print(tmp)
 end
 
--- OUTPUT
-local metadata = table.concat(tmp, "\n")
+disp(packages)
 
+-- OUTPUT sample
+--[[
+# neovim config
+
+## Plugins - 138 plugins
+- [human-rights.nvim](https://github.com/mimikun/human-rights.nvim)
+...
+
+## LSP servers - 5 servers
+- lua_ls
+...
+
+## Treesitter parsers - 8 parsers
+- lua
+...
+
+## Mason installed packages - 17 packages
+- stylua
+...
+]]
+
+--[[
+-- file output
 local file_path = string.format("%s/README-generated.md", vim.fn.stdpath("config"))
 local fd = assert(vim.uv.fs_open(file_path, "w", 438))
 assert(vim.uv.fs_write(fd, metadata))
 assert(vim.uv.fs_close(fd))
-
---[[
----Get lsp servers
----@return table
-local lsp_servers = function()
-    local lspconfig = require("lspconfig")
-    local servers = lspconfig.util.available_servers()
-
-    table.sort(servers)
-
-    return servers
-end
-
----Get the installed treesitter parsers by nvim-treesitter
----@return table
-local treesitter_parsers = function()
-    local ts = require("nvim-treesitter.configs")
-    local parsers = ts.get_ensure_installed_parsers()
-
-    table.sort(parsers)
-
-    return parsers
-end
-
----Get the installed lsp servers and tools by mason.nvim
----@return table
-local mason_tools = function()
-    local mason = require("mason")
-
-    local install_dir = string.format("%s/bin", vim.env.MASON)
-
-    if vim.fn.isdirectory(install_dir) == 0 then
-        return {}
-    end
-
-    local files
-    files = vim.split(vim.fn.globpath(install_dir, "*"), "\n", {})
-    files = vim.tbl_map(function(file)
-        return vim.fn.fnamemodify(file, ":t")
-    end, files)
-
-    table.sort(files)
-
-    return files
-end
-
-table.insert(readme, "# My neovim configuration")
-table.insert(readme, "")
-table.insert(readme, "## Plugins")
-table.insert(readme, "")
-table.insert(readme, "手動で配置してください")
-table.insert(readme, "")
-table.insert(readme, table.concat(plugin_full_list(), "\n"))
-table.insert(readme, "")
-table.insert(readme, "### Denops Plugins")
-table.insert(readme, "")
-table.insert(readme, "Disable when [human rights] are violated.")
-table.insert(readme, "[denops.vim] needs [human rights].")
-table.insert(readme, "")
-table.insert(readme, "手動で配置してください")
-table.insert(readme, "")
-table.insert(readme, "### Vim Script Plugins")
-table.insert(readme, "")
-table.insert(readme, "手動で配置してください")
-table.insert(readme, "")
-table.insert(readme, "#### Colorscheme")
-table.insert(readme, "")
-table.insert(readme, "手動で配置してください")
-table.insert(readme, "")
-table.insert(readme, "### Lua Plugins")
-table.insert(readme, "")
-table.insert(readme, "手動で配置してください")
-table.insert(readme, "")
-table.insert(readme, "#### Colorscheme")
-table.insert(readme, "")
-table.insert(readme, "手動で配置してください")
-table.insert(readme, "")
-table.insert(readme, "## nvim-treesitter parsers")
-table.insert(readme, "")
-table.insert(readme, "## Mason managed tools")
-table.insert(readme, "")
-table.insert(readme, "## LSP servers")
-table.insert(readme, "")
--- reference links
-table.insert(readme, "[human rights]:https://github.com/mimikun/dotfiles/blob/master/docs/GLOSSARY.md#human-rights")
 ]]

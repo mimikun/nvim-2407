@@ -43,51 +43,185 @@ local keys = {
         key_opts,
         desc = "Re-order to next",
     },
-    -- TODO: it
-
-    -- Goto buffer in position...
-    --nnoremap <silent>    <A-1> <Cmd>BufferGoto 1<CR>
-    --nnoremap <silent>    <A-2> <Cmd>BufferGoto 2<CR>
-    --nnoremap <silent>    <A-3> <Cmd>BufferGoto 3<CR>
-    --nnoremap <silent>    <A-4> <Cmd>BufferGoto 4<CR>
-    --nnoremap <silent>    <A-5> <Cmd>BufferGoto 5<CR>
-    --nnoremap <silent>    <A-6> <Cmd>BufferGoto 6<CR>
-    --nnoremap <silent>    <A-7> <Cmd>BufferGoto 7<CR>
-    --nnoremap <silent>    <A-8> <Cmd>BufferGoto 8<CR>
-    --nnoremap <silent>    <A-9> <Cmd>BufferGoto 9<CR>
-    --nnoremap <silent>    <A-$> <Cmd>BufferLast<CR>
-
-    -- Pin/unpin buffer
-    --nnoremap <silent>    <A-p> <Cmd>BufferPin<CR>
-
-    -- Close buffer
-    --nnoremap <silent>    <A-c> <Cmd>BufferClose<CR>
-    -- Restore buffer
-    --nnoremap <silent>    <A-s-c> <Cmd>BufferRestore<CR>
-
-    -- Magic buffer-picking mode
-    --nnoremap <silent> <C-p>    <Cmd>BufferPick<CR>
-    -- Magic buffer-picking mode
-    --nnoremap <silent> <C-p>    <Cmd>BufferPickDelete<CR>
-
-    -- Sort automatically by BufferNumber
-    --nnoremap <silent> <Space>bb <Cmd>BufferOrderByBufferNumber<CR>
-    -- Sort automatically by Name
-    --nnoremap <silent> <Space>bn <Cmd>BufferOrderByName<CR>
-    -- Sort automatically by Directory
-    --nnoremap <silent> <Space>bd <Cmd>BufferOrderByDirectory<CR>
-    -- Sort automatically by Language
-    --nnoremap <silent> <Space>bl <Cmd>BufferOrderByLanguage<CR>
-    -- Sort automatically by WindowNumber
-    --nnoremap <silent> <Space>bw <Cmd>BufferOrderByWindowNumber<CR>
     {
-        "<leader>",
+        "<leader>b1",
         function()
-            vim.cmd("")
+            vim.cmd("BufferGoto 1")
         end,
         mode = "n",
         key_opts,
-        desc = "",
+        desc = "Goto buffer in 1",
+    },
+    {
+        "<leader>b2",
+        function()
+            vim.cmd("BufferGoto 2")
+        end,
+        mode = "n",
+        key_opts,
+        desc = "Goto buffer in 2",
+    },
+    {
+        "<leader>b3",
+        function()
+            vim.cmd("BufferGoto 3")
+        end,
+        mode = "n",
+        key_opts,
+        desc = "Goto buffer in 3",
+    },
+    {
+        "<leader>b4",
+        function()
+            vim.cmd("BufferGoto 4")
+        end,
+        mode = "n",
+        key_opts,
+        desc = "Goto buffer in 4",
+    },
+    {
+        "<leader>b5",
+        function()
+            vim.cmd("BufferGoto 5")
+        end,
+        mode = "n",
+        key_opts,
+        desc = "Goto buffer in 5",
+    },
+    {
+        "<leader>b6",
+        function()
+            vim.cmd("BufferGoto 6")
+        end,
+        mode = "n",
+        key_opts,
+        desc = "Goto buffer in 6",
+    },
+    {
+        "<leader>b7",
+        function()
+            vim.cmd("BufferGoto 7")
+        end,
+        mode = "n",
+        key_opts,
+        desc = "Goto buffer in 7",
+    },
+    {
+        "<leader>b8",
+        function()
+            vim.cmd("BufferGoto 8")
+        end,
+        mode = "n",
+        key_opts,
+        desc = "Goto buffer in 8",
+    },
+    {
+        "<leader>b9",
+        function()
+            vim.cmd("BufferGoto 9")
+        end,
+        mode = "n",
+        key_opts,
+        desc = "Goto buffer in 9",
+    },
+    {
+        "<leader>b$",
+        function()
+            vim.cmd("BufferLast")
+        end,
+        mode = "n",
+        key_opts,
+        desc = "Goto last buffer",
+    },
+    {
+        "<leader>p",
+        function()
+            vim.cmd("BufferPin")
+        end,
+        mode = "n",
+        key_opts,
+        desc = "Pin or unpin buffer",
+    },
+    {
+        "<leader>c",
+        function()
+            vim.cmd("BufferClose")
+        end,
+        mode = "n",
+        key_opts,
+        desc = "Close buffer",
+    },
+    {
+        "<leader>sc",
+        function()
+            vim.cmd("BufferRestore")
+        end,
+        mode = "n",
+        key_opts,
+        desc = "Restore buffer",
+    },
+    {
+        "<C-p>",
+        function()
+            vim.cmd("BufferPick")
+        end,
+        mode = "n",
+        key_opts,
+        desc = "Magic buffer-picking mode: Pick",
+    },
+    {
+        "<C-p>",
+        function()
+            vim.cmd("BufferPickDelete")
+        end,
+        mode = "n",
+        key_opts,
+        desc = "Magic buffer-picking mode: PickDelete",
+    },
+    {
+        "<leader>bb",
+        function()
+            vim.cmd("BufferOrderByBufferNumber")
+        end,
+        mode = "n",
+        key_opts,
+        desc = "Sort automatically by BufferNumber",
+    },
+    {
+        "<leader>bn",
+        function()
+            vim.cmd("BufferOrderByName")
+        end,
+        mode = "n",
+        key_opts,
+        desc = "Sort automatically by Name",
+    },
+    {
+        "<leader>bd",
+        function()
+            vim.cmd("BufferOrderByDirectory")
+        end,
+        mode = "n",
+        key_opts,
+        desc = "Sort automatically by Directory",
+    },
+    {
+        "<leader>bl",
+        function()
+            vim.cmd("BufferOrderByLanguage")
+        end,
+        mode = "n",
+        key_opts,
+        desc = "Sort automatically by Language",
+    },
+    {
+        "<leader>bw",
+        function()
+            vim.cmd("BufferOrderByWindowNumber")
+        end,
+        mode = "n",
+        key_opts,
+        desc = "Sort automatically by WindowNumber",
     },
 }
 

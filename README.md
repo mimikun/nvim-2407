@@ -19,10 +19,34 @@ set -Ux NVIM_APPNAME nvim-2407
 
 ## TODO
 
-- [ ] `Lazy sync` すると画面がガクガク揺れる
 - [ ] `:q` で閉じたあと中身が見えたままになる
-- [ ] barbar-nvim.lua
-    - keymaps
+- [ ] mimikun-icons.lua
+    - [ ] alpha-nvim.lua
+    - [ ] crates-nvim.lua
+    - [ ] diffview-nvim.lua
+    - [ ] eskk-vim.lua
+    - [ ] fidget.lua
+    - [ ] gitgraph-nvim.lua
+    - [ ] gitsigns-nvim.lua
+    - [ ] indent-blankline.lua
+    - [ ] lazygit-nvim.lua
+    - [ ] legendary-nvim.lua
+    - [ ] lspsaga-nvim.lua
+    - [ ] lualine-nvim.lua
+    - [ ] mason-nvim.lua
+    - [ ] neogit.lua
+    - [ ] nvim-cmp.lua
+    - [ ] nvim-navic.lua
+    - [ ] nvim-tree.lua
+    - [ ] obsidian-nvim-opts.lua
+    - [ ] package-info-nvim.lua
+    - [ ] render-markdown.lua
+    - [ ] satellite-nvim.lua
+    - [ ] sidebar-nvim.lua
+    - [ ] smoothcursor-nvim.lua
+    - [ ] todo-comments-nvim.lua
+    - [ ] trouble.lua
+    - [ ] which-key-nvim.lua
 - [ ] 欲しいの全部いれる(本番前の確認)
     - [ ] nvim-cmp.lua
     - [ ] nvim-lspconfig.lua

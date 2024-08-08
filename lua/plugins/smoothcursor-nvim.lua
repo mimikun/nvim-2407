@@ -32,9 +32,18 @@ local opts = {
         -- false to disable fancy tail
         tail = { cursor = nil, texthl = "SmoothCursor" },
     },
-
-    -- Disable for these file types, ignored if enabled_filetypes is set.
-    disabled_filetypes = { "TelescopePrompt", "NvimTree" },
+    disabled_filetypes = {
+        "TelescopePrompt",
+        "NvimTree",
+        "lazy",
+        "alpha",
+        "lspinfo",
+        "packer",
+        "startify",
+        "TelescopeResults",
+        "dashboard",
+        "Trouble",
+    },
 }
 
 ---@type LazySpec

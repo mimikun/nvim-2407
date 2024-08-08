@@ -3,10 +3,7 @@ local events = { "ModeChanged", "BufWinEnter", "WinEnter" }
 
 ---@type table
 local opts = {
-    -- disable filetypes here. Add for example "TelescopePrompt" to
-    -- not have any coloured cursorline for the telescope prompt.
     disabled_filetypes = { "TelescopePrompt", "lazy" },
-    -- you can turn on or off bold characters for the line numbers
     bold_nr = true,
 }
 

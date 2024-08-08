@@ -1,6 +1,12 @@
----@type table
+---@type LazyKeysSpec[]
 local keys = {
-    { "<leader>h", ":HopWord<CR>", mode = "n", { silent = true }, desc = "HopWord" },
+    {
+        "<leader>h",
+        ":HopWord<CR>",
+        mode = "n",
+        { silent = true },
+        desc = "HopWord",
+    },
 }
 
 ---@type table
@@ -30,6 +36,8 @@ local spec = {
     cmd = cmds,
     opts = opts,
     --cond = false,
+    -- NOTE: easymotion plugin
+    --enabled = false,
 }
 
 return spec

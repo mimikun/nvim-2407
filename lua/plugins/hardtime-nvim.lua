@@ -11,7 +11,14 @@ local opts = {
     notification = true,
     allow_different_key = false,
     enabled = true,
-    disabled_filetypes = { "qf", "netrw", "NvimTree", "lazy", "mason", "oil" },
+    disabled_filetypes = {
+        "qf",
+        "netrw",
+        "NvimTree",
+        "lazy",
+        "mason",
+        "oil",
+    },
 }
 
 ---@type LazySpec

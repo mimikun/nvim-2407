@@ -13,4 +13,5 @@ nd = "nd"
 [files]
 extend-exclude = [
     "lua/plugins/configs/telescope-nvim/media.lua",
+    "utils/env-reset.sh",
 ]

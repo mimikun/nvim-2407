@@ -10,7 +10,6 @@ local cmds = {
 
 ---@type table
 local opts = {
-    -- filetypes to not illuminate
     filetypes_denylist = {
         "dirbuf",
         "dirvish",
