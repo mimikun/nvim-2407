@@ -48,7 +48,6 @@ local opts = {
         -- ignore lines longer than this
         max_line_len = 400,
         -- list of file types to exclude highlighting
-        -- TODO: ex-ft
         exclude = {},
     },
 }
