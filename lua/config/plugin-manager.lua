@@ -2,19 +2,13 @@ local global = require("config.global")
 local iconsets = require("utils.icons")
 
 -- Limit the number of concurrent task depending on human rights or OS
----@type number|function limit the maximum amount of concurrent tasks
-local concurrency_limit_check = function()
-    local limit
-    if global.is_human_rights then
-        limit = global.is_windows and (vim.uv.available_parallelism() * 2) or nil
-    else
-        limit = 6
-    end
-    return limit
+---@type number|nil
+local concurrency
+if global.is_human_rights then
+    concurrency = global.is_windows and (vim.uv.available_parallelism() * 2) or nil
+else
+    concurrency = 6
 end
-
----@type number
-local concurrency = concurrency_limit_check()
 
 ---@type string
 local lazy_root = table.concat({ global.data_dir, "lazy" }, global.path_sep)
