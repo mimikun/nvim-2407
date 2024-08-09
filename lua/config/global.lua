@@ -48,7 +48,7 @@ global.is_human_rights = is_human_rights
 ---@type string|nil
 global.app_name = vim.env.NVIM_APPNAME and vim.env.NVIM_APPNAME or "nvim"
 
----@type string
+---@type string|string[]
 global.vim_path = vim.fn.stdpath("config")
 
 -- NOTE:
@@ -61,10 +61,10 @@ local path_sep_char = string.sub(package.config, 1, 1)
 ---@type string
 global.path_sep = global.is_windows and string.rep(path_sep_char, 2) or path_sep_char
 
----@type string
+---@type string|nil
 global.home = vim.uv.os_homedir()
 
----@type string
+---@type string|string[]
 global.cache_dir = vim.fn.stdpath("cache")
 
 ---@type string
