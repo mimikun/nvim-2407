@@ -36,8 +36,4 @@ if not require("config.global").is_windows then
     table.insert(need_servers, "markdown_oxide")
 end
 
-need_servers = {
-    "lua_ls",
-}
-
 return need_servers

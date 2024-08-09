@@ -10,7 +10,6 @@ local need_adapters = {
     --"coreclr",
     --"js",
     --"codelldb",
-    --"bash",
     --"javadbg",
     --"javatest",
     --"mock",
@@ -22,10 +21,8 @@ local need_adapters = {
 }
 
 -- NOTE: Include DAP_ADAPTER_NAME
---[[
 if not require("config.global").is_windows then
-    table.insert(need_adapters, "")
+    table.insert(need_adapters, "bash")
 end
-]]
 
 return need_adapters

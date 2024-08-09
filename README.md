@@ -17,6 +17,28 @@ set -Ux NVIM_APPNAME nvim-2407
 - プラグインファイルの名前の付け方
     - [rocks-config.nvim の Note にあるやり方](https://github.com/nvim-neorocks/rocks-config.nvim?tab=readme-ov-file#options) に従う
 
+## インストール時間
+
+全部入りの本番構成で試す
+
+### Home-Win
+
+- 1m56s
+
+## 起動時間
+
+### Home-Win
+
+```shell
+❯ vim-startuptime -vimpath nvim | head -n 6
+Extra options: []
+Measured: 10 times
+
+Total Average: 157.044900 msec
+Total Max:     167.195000 msec
+Total Min:     149.317000 msec
+```
+
 ## TODO
 
 - [ ] `:q` で閉じたあと中身が見えたままになる

@@ -79,7 +79,7 @@ local spec = {
         mason_lspconfig.setup({
             --ensure_installed = require("plugins.configs.lspconfigs.need_servers"),
             -- TODO: test only, remove it
-            ensure_installed = { "lua_ls", "rust_analyzer", "efm" },
+            ensure_installed = { "lua_ls", "rust_analyzer", "markdown_oxide" },
         })
 
         mason_lspconfig.setup_handlers({

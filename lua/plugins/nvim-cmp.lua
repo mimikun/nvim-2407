@@ -11,12 +11,10 @@ local dependencies = {
     "hrsh7th/cmp-path",
     "onsails/lspkind.nvim",
     "folke/lazydev.nvim",
-    --[[
     "hrsh7th/cmp-emoji",
     "nvim-orgmode/orgmode",
     "SergioRibera/cmp-dotenv",
     "rcarriga/cmp-dap",
-    ]]
 }
 
 ---@type table
@@ -26,20 +24,18 @@ local cmp_config_sources = {
     { name = "buffer" },
     { name = "path" },
     { name = "lazydev" },
-    --{
-    --    name = "nvim_lsp",
-    --    option = {
-    --        markdown_oxide = {
-    --            keyword_pattern = [[\(\k\| \|\/\|#\)\+]],
-    --        },
-    --    },
-    --},
-    --[[
+    {
+        name = "nvim_lsp",
+        option = {
+            markdown_oxide = {
+                keyword_pattern = [[\(\k\| \|\/\|#\)\+]],
+            },
+        },
+    },
     { name = "emoji" },
     { name = "orgmode" },
     { name = "dotenv" },
     { name = "crates" },
-    ]]
 }
 
 if use_ai then
@@ -130,6 +126,9 @@ local spec = {
                     symbol_map = { Copilot = "" },
                 }),
             },
+            enabled = function()
+                return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or require("cmp_dap").is_dap_buffer()
+            end,
         })
         cmp.setup.cmdline(":", {
             mapping = cmp.mapping.preset.cmdline(),
@@ -149,25 +148,13 @@ local spec = {
                 },
             }),
         })
-    end,
-    --cond = false,
-}
-
-return spec
---[[
----@type LazySpec
-local spec = {
-    config = function()
-        cmp.setup({
-            enabled = function()
-                return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or require("cmp_dap").is_dap_buffer()
-            end,
-        })
         cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
             sources = {
                 { name = "dap" },
             },
         })
     end,
+    --cond = false,
 }
-]]
+
+return spec
