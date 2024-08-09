@@ -51,10 +51,12 @@ local lazy_settings = {
         timeout = 300,
         -- rate of network related git operations (clone, fetch, checkout)
         throttle = {
-            enabled = false, -- not enabled by default
+            -- not enabled by default
+            enabled = false,
             -- max 2 ops every 5 seconds
             rate = 2,
-            duration = 5 * 1000, -- in ms
+            -- in ms
+            duration = 5 * 1000,
         },
     },
     rocks = {
@@ -63,10 +65,6 @@ local lazy_settings = {
     dev = {
         path = table.concat({ global.home, "ghq", "github.com", "mimikun", "dev-plugins" }, global.path_sep),
         fallback = true,
-    },
-    install = {
-        -- TODO: fix
-        --colorscheme = { vim.cmd.colorscheme() },
     },
     ui = {
         size = { width = 0.88, height = 0.8 },
