@@ -52,12 +52,24 @@ table.sort(servers)
 table.sort(parsers)
 table.sort(packages)
 
+local title = {
+    "# neovim config",
+}
+
+local readme = {}
+
+readme = vim.list_extend(readme, title)
+readme = vim.list_extend(readme, plugins)
+readme = vim.list_extend(readme, servers)
+readme = vim.list_extend(readme, parsers)
+readme = vim.list_extend(readme, packages)
+
 local disp = function(elem)
     local tmp = table.concat(elem, "\n")
     print(tmp)
 end
 
-disp(packages)
+disp(readme)
 
 -- OUTPUT sample
 --[[
@@ -80,10 +92,10 @@ disp(packages)
 ...
 ]]
 
---[[
+local txt = table.concat(readme, "\n")
+
 -- file output
 local file_path = string.format("%s/README-generated.md", vim.fn.stdpath("config"))
 local fd = assert(vim.uv.fs_open(file_path, "w", 438))
-assert(vim.uv.fs_write(fd, metadata))
+assert(vim.uv.fs_write(fd, txt))
 assert(vim.uv.fs_close(fd))
-]]
