@@ -55,6 +55,8 @@ local spec = {
     keys = keys,
     opts = opts,
     --cond = false,
+    -- NOTE: not for me
+    enabled = false,
 }
 
 return spec

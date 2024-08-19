@@ -1,3 +1,7 @@
+--- Disable if there are human rights
+---@type boolean
+local is_not_human_rights = not require("config.global").is_human_rights
+
 ---@type table
 local cmds = {
     "EskkMap",
@@ -93,7 +97,8 @@ local spec = {
         vim.g["eskk#fix_extra_okuri"] = 1
         vim.g["eskk#convert_at_exact_match"] = 0
     end,
-    --cond = false,
+    cond = is_not_human_rights,
+    enabled = is_not_human_rights,
 }
 
 return spec
